@@ -1,6 +1,6 @@
 <main class="min-h-screen relative">
   <!--NavBar-->
-  <mat-toolbar color="primary">
+  <mat-toolbar class="fixed top-0 z-10" color="primary">
     <div class="flex gap-[20px] w-full justify-between md:justify-start">
       <div class="flex items-center">
         <button mat-icon-button>
@@ -46,11 +46,11 @@
     </div>
   </mat-toolbar>
 
-  <div class="h-full">
+  <div class="mt-[56px] md:mt-[64px] h-full">
     <!--SideBar-->
     <mat-drawer-container class="h-full" [hasBackdrop]="true">
-      <mat-drawer #sideNavbar mode="over">
-        <div class="h-full p-[5px]">
+      <mat-drawer style="position: fixed !important;" class="h-screen" #sideNavbar mode="over">
+        <div class="mt-[56px] p-[5px] sm:pt-[10px] md:pt-[15px] bg-[#ffffff]">
           <button mat-button [matMenuTriggerFor]="SecondMenu">First Menu</button>
         </div>
       </mat-drawer>
