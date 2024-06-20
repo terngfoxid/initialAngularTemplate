@@ -103,17 +103,46 @@
         </div>
       </div>
       <div class="w-full min-h-full" #PageGroup>
-        <div class="w-full h-full p-[5px] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
+        <div class="w-full h-full p-[5px] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[20px] md:gap-[30px]">
           <div class="w-full ">
             <h3>Example Dialog</h3>
             <button mat-raised-button (click)="openDialog('300ms', '300ms')">Yes/No dialog</button>
-            <p>Current value: {{optionDialog.value}}</p>
-
+            <p class="mb-[19px]">Current value: {{optionDialog.value}}</p>
+            <mat-divider></mat-divider>
             <h3 class="mt-[10px]">Example Dialog with Input</h3>
             <button mat-raised-button (click)="openInputDialog('300ms', '300ms')">Input dialog</button>
             <p>Current value: {{optionInputDialog.value}}</p>
           </div>
-          <div class="w-full bg-[#653148]"></div>
+          <div class="w-full">
+            <h3>Example Select</h3>
+            <mat-form-field class="p-0 w-[180px]">
+              <mat-label>Favorite food</mat-label>
+              <mat-select [(ngModel)]="optionSelect.selectedValue" name="food">
+                @for (food of optionSelect.selectItems; track food) {
+                <mat-option [value]="food.id">{{food.name}}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+            <mat-divider></mat-divider>
+            <h3 class="mt-[10px]">Example Multi Select</h3>
+            <mat-form-field class="p-0 w-[180px]">
+              <mat-label>Toppings</mat-label>
+              <mat-select [(ngModel)]="optionSelectMulti.selectedValue" multiple name="topping">
+                <mat-select-trigger>
+                  {{getFirst(optionSelectMulti)}}
+                  @if ((optionSelectMulti.selectedValue.length) > 1) {
+                    <span class="example-additional-selection">
+                      (+{{(optionSelectMulti.selectedValue.length || 0) - 1}} {{optionSelectMulti.selectedValue.length === 2 ? 'other' : 'others'}})
+                    </span>
+                  }
+                </mat-select-trigger>
+                @for (topping of optionSelectMulti.selectItems; track topping) {
+                <mat-option [value]="topping.id">{{topping.name}}</mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+            <p>Current value: {{optionSelectMulti.selectedValue}}</p>
+          </div>
           <div class="w-full bg-[#653148]"></div>
           <div class="w-full bg-[#653148]"></div>
           <div class="w-full bg-[#653148]"></div>
