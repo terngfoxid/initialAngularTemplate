@@ -103,7 +103,7 @@
         </div>
       </div>
       <div class="w-full min-h-full" #PageGroup>
-        <div class="w-full h-full p-[5px] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[20px] md:gap-[30px]">
+        <div class="w-full p-[5px] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[20px] md:gap-[30px]">
           <div class="w-full ">
             <h3>Example Dialog</h3>
             <button mat-raised-button (click)="openDialog('300ms', '300ms')">Yes/No dialog</button>
@@ -143,10 +143,41 @@
             </mat-form-field>
             <p>Current value: {{optionSelectMulti.selectedValue}}</p>
           </div>
-          <div class="w-full bg-[#653148]"></div>
-          <div class="w-full bg-[#653148]"></div>
-          <div class="w-full bg-[#653148]"></div>
-          <div class="w-full bg-[#653148]"></div>
+          <div class="w-full">
+            <h3>Example Datepicker</h3>
+            <mat-form-field class="p-0 w-[180px]">
+              <mat-label>วันที่</mat-label>
+              <input matInput [matDatepicker]="datepicker" name="datepicker" readonly/>
+              <mat-hint>วัน/เดือน/ปี พ.ศ.</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+              <mat-datepicker #datepicker>
+                <mat-datepicker-actions>
+                  <button mat-button matDatepickerCancel>Cancel</button>
+                  <button mat-raised-button matDatepickerApply>Apply</button>
+                </mat-datepicker-actions>
+              </mat-datepicker>
+            </mat-form-field>
+            <mat-divider></mat-divider>
+            <h3 class="mt-[10px]">Example Date Range</h3>
+            <mat-form-field class="p-0 w-[180px]">
+              <mat-label>วันที่</mat-label>
+              <mat-date-range-input [rangePicker]="rangePicker">
+                <input matStartDate placeholder="วันที่เริ่ม" name="startdatepicker" readonly/>
+                <input matEndDate placeholder="วันที่สิ้นสุด" name="enddatepicker" readonly/>
+              </mat-date-range-input>
+              <mat-hint>วัน/เดือน/ปี พ.ศ. ถึง วัน/เดือน/ปี พ.ศ.</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="rangePicker"></mat-datepicker-toggle>
+              <mat-date-range-picker #rangePicker>
+                <mat-date-range-picker-actions>
+                  <button mat-button matDateRangePickerCancel>Cancel</button>
+                  <button mat-raised-button matDateRangePickerApply>Apply</button>
+                </mat-date-range-picker-actions>
+              </mat-date-range-picker>
+            </mat-form-field>
+          </div>
+          <div class="w-full bg-[#653148]">4</div>
+          <div class="w-full bg-[#653148]">5</div>
+          <div class="w-full bg-[#653148]">6</div>
         </div>
       </div>
     </div>

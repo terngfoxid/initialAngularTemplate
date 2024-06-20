@@ -14,15 +14,16 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @Component({
   selector: 'home-component',
   standalone: true,
   imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatCardModule,MatSidenavModule,MatDividerModule,
-    MatInputModule,MatSelectModule,MatFormFieldModule,FormsModule
+    MatInputModule,MatSelectModule,MatFormFieldModule,FormsModule,MatDatepickerModule
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
 })
 export class HomeComponent {
   readonly dialog = inject(MatDialog);
