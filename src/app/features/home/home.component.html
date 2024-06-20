@@ -1,14 +1,18 @@
-    <h1 class="text-center mb-[5px] sm:text-lg md:text-2xl lg:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-pink-700">Welcome to Angular Initial Project Template</h1>
-    <mat-card class="overflow-hidden" appearance="outlined">
-      <mat-card-header style="padding: 0px;">
-        <mat-toolbar color="primary">
-          <div class="text-sm sm:flex sm:gap-[10px] sm:text-base md:text-lg">
-            <p>Angular 17</p>
-            <p>Angular Material UI + Tailwind Template</p>
-          </div>
-        </mat-toolbar>
-      </mat-card-header>
-      <mat-card-content>
+<h1
+  class="text-center mb-[5px] sm:text-lg md:text-2xl lg:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-pink-700">
+  Welcome to Angular Initial Project Template</h1>
+<mat-card class="overflow-hidden" appearance="outlined">
+  <mat-card-header style="padding: 0px;">
+    <mat-toolbar color="primary">
+      <div class="text-sm sm:flex sm:gap-[10px] sm:text-base md:text-lg">
+        <p>Angular 17</p>
+        <p>Angular Material UI + Tailwind Template</p>
+      </div>
+    </mat-toolbar>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="xl:flex xl:gap-[20px]">
+      <div class="" #colorIconGroup>
         <div class="sm:flex sm:gap-[20px]">
           <div class="p-[5px]">
             <h3>Angular Material UI Colors</h3>
@@ -97,5 +101,25 @@
             </a>
           </div>
         </div>
-      </mat-card-content>
-    </mat-card>
+      </div>
+      <div class="w-full min-h-full" #PageGroup>
+        <div class="w-full h-full p-[5px] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
+          <div class="w-full ">
+            <h3>Example Dialog</h3>
+            <button mat-raised-button (click)="openDialog('300ms', '300ms')">Yes/No dialog</button>
+            <p>Current value: {{optionDialog.value}}</p>
+
+            <h3 class="mt-[10px]">Example Dialog with Input</h3>
+            <button mat-raised-button (click)="openInputDialog('300ms', '300ms')">Input dialog</button>
+            <p>Current value: {{optionInputDialog.value}}</p>
+          </div>
+          <div class="w-full bg-[#653148]"></div>
+          <div class="w-full bg-[#653148]"></div>
+          <div class="w-full bg-[#653148]"></div>
+          <div class="w-full bg-[#653148]"></div>
+          <div class="w-full bg-[#653148]"></div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

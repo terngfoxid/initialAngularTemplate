@@ -1,0 +1,8 @@
+<h4 mat-dialog-title>{{data.header}}</h4>
+<mat-dialog-content>
+  {{data.content}}
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onConfirmClick()">{{data.confirm}}</button>
+  <button mat-button (click)="onNoClick()">{{data.reject}}</button>
+</mat-dialog-actions>

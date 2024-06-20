@@ -4,13 +4,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { timeFormatPipe } from '../../pipes/time-format.pipe';
 import { isPlatformBrowser } from '@angular/common';
 
 @Component({
     selector: 'clock-component',
     standalone: true,
-    imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatCardModule, MatSidenavModule, timeFormatPipe],
+    imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatCardModule, MatSidenavModule],
     templateUrl: './clock.component.html',
     styleUrl: './clock.component.css',
 })
@@ -36,16 +35,16 @@ export class ClockComponent {
         const min = d.getMinutes();
         const sec = d.getSeconds();
 
-        let MV = "AM";
+        /*let MV = "AM";
         if (hour == 12) {
             MV = "PM";
         }
         if (hour > 12) {
             hour = hour % 12;
             MV = "PM";
-        }
+        }*/
         if(this.clock != null){
-            this.clock.nativeElement.innerHTML = + ("0" + hour).slice(-2) + ":" + ("0" + min).slice(-2) + ":" + ("0" + sec).slice(-2) + " " + MV;
+            this.clock.nativeElement.innerHTML = + ("0" + hour).slice(-2) + ":" + ("0" + min).slice(-2) + ":" + ("0" + sec).slice(-2);
         }
     }
 }

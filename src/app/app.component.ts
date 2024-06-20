@@ -9,6 +9,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { ClockComponent } from './shared/components/clock/clock.component';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { BackToTopComponent } from './shared/components/back-to-top/back-to-top.component';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule,RouterOutlet, MatToolbarModule, MatButtonModule,
     MatIconModule, MatMenuModule,
     MatCardModule, MatSidenavModule,
-    ClockComponent],
+    ClockComponent,BackToTopComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
