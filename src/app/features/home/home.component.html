@@ -131,9 +131,10 @@
                 <mat-select-trigger>
                   {{getFirst(optionSelectMulti)}}
                   @if ((optionSelectMulti.selectedValue.length) > 1) {
-                    <span class="example-additional-selection">
-                      (+{{(optionSelectMulti.selectedValue.length || 0) - 1}} {{optionSelectMulti.selectedValue.length === 2 ? 'other' : 'others'}})
-                    </span>
+                  <span class="example-additional-selection">
+                    (+{{(optionSelectMulti.selectedValue.length || 0) - 1}} {{optionSelectMulti.selectedValue.length ===
+                    2 ? 'other' : 'others'}})
+                  </span>
                   }
                 </mat-select-trigger>
                 @for (topping of optionSelectMulti.selectItems; track topping) {
@@ -147,7 +148,7 @@
             <h3>Example Datepicker</h3>
             <mat-form-field class="p-0 w-[180px]">
               <mat-label>วันที่</mat-label>
-              <input matInput [matDatepicker]="datepicker" name="datepicker" readonly/>
+              <input matInput [matDatepicker]="datepicker" name="datepicker" readonly />
               <mat-hint>วัน/เดือน/ปี พ.ศ.</mat-hint>
               <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
               <mat-datepicker #datepicker>
@@ -162,8 +163,8 @@
             <mat-form-field class="p-0 w-[180px]">
               <mat-label>วันที่</mat-label>
               <mat-date-range-input [rangePicker]="rangePicker">
-                <input matStartDate placeholder="วันที่เริ่ม" name="startdatepicker" readonly/>
-                <input matEndDate placeholder="วันที่สิ้นสุด" name="enddatepicker" readonly/>
+                <input matStartDate placeholder="วันที่เริ่ม" name="startdatepicker" readonly />
+                <input matEndDate placeholder="วันที่สิ้นสุด" name="enddatepicker" readonly />
               </mat-date-range-input>
               <mat-hint>วัน/เดือน/ปี พ.ศ. ถึง วัน/เดือน/ปี พ.ศ.</mat-hint>
               <mat-datepicker-toggle matIconSuffix [for]="rangePicker"></mat-datepicker-toggle>
@@ -175,7 +176,20 @@
               </mat-date-range-picker>
             </mat-form-field>
           </div>
-          <div class="w-full bg-[#653148]">4</div>
+          <div class="w-full">
+            <h3>Example Basic Slider</h3>
+            <mat-slider style="width: 100%;" min="0" max="100">
+              <input matSliderThumb>
+            </mat-slider>
+            <mat-divider></mat-divider>
+            <h3 class="mt-[10px]">Example Range slider</h3>
+            <div class="w-full mt-[30px]">
+              <mat-slider style="width: 100%;" min="0" max="500" discrete [displayWith]="formatLabel">
+                <input value="250" matSliderStartThumb>
+                <input value="400" matSliderEndThumb>
+              </mat-slider>
+            </div>
+          </div>
           <div class="w-full bg-[#653148]">5</div>
           <div class="w-full bg-[#653148]">6</div>
         </div>

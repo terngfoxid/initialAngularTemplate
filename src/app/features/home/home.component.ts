@@ -15,12 +15,14 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSliderModule} from '@angular/material/slider';
 
 @Component({
   selector: 'home-component',
   standalone: true,
   imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatCardModule,MatSidenavModule,MatDividerModule,
-    MatInputModule,MatSelectModule,MatFormFieldModule,FormsModule,MatDatepickerModule
+    MatInputModule,MatSelectModule,MatFormFieldModule,FormsModule,MatDatepickerModule,
+    MatSliderModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
@@ -95,5 +97,9 @@ export class HomeComponent {
       return item.id == option.selectedValue[0]
     })
     return findFirst?.name
+  }
+
+  formatLabel(value: number): string {
+    return `${value}`;
   }
 }
