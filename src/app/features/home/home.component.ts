@@ -3,9 +3,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
-import {
-  MatDialog,
-} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { SimpleDialogComponent } from '../../shared/components/simple-dialog/simple-dialog.component';
 import { InputDialogComponent } from '../../shared/components/input-dialog/input-dialog.component';
 import { MatDividerModule } from '@angular/material/divider';
@@ -18,8 +16,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { SnackBarComponent } from '../../shared/components/snack-bar/snack-bar.component';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'home-component',
@@ -126,7 +124,7 @@ export class HomeComponent {
 
   //init snack bar
   //ประกาศ constructor ที่ใช้เรียก Snack Bar
-  constructor(private _snackBar: MatSnackBar){}
+  constructor(private _snackBar: MatSnackBar) { }
   openSnackBar() {
     //เรียกโดยใช้method openFromComponent โดยไปเรียก SnackBarComponent
     this._snackBar.openFromComponent(SnackBarComponent, {
@@ -149,9 +147,9 @@ export class HomeComponent {
     name: 'Parent task',
     completed: false,
     subtasks: [//check box ย่อย
-      {name: 'Child task 1', completed: false},
-      {name: 'Child task 2', completed: false},
-      {name: 'Child task 3', completed: false},
+      { name: 'Child task 1', completed: false },
+      { name: 'Child task 2', completed: false },
+      { name: 'Child task 3', completed: false },
     ],
   };
 
@@ -166,16 +164,16 @@ export class HomeComponent {
 
   //method อัพเดตค่าในตัวแปร
   update(completed: boolean, index?: number) {
-      if (index === undefined) {
-        //กำหนดค่า parent ตามที่ได้จาก check box
-        this.task.completed = completed;
-        //กำหนดค่าตัวลูกทั้งหมดตาม
-        this.task.subtasks?.forEach((t: { completed: boolean; }) => (t.completed = completed));
-      } else {
-        //กำหนดค่า child ตามที่ได้จาก check box
-        this.task.subtasks![index].completed = completed;
-        //กำหนดค่าตัว parent ตามการเปลี่ยนแปลงของ child
-        this.task.completed = this.task.subtasks?.every((t: { completed: any; }) => t.completed) ?? true;
-      }
+    if (index === undefined) {
+      //กำหนดค่า parent ตามที่ได้จาก check box
+      this.task.completed = completed;
+      //กำหนดค่าตัวลูกทั้งหมดตาม
+      this.task.subtasks?.forEach((t: { completed: boolean; }) => (t.completed = completed));
+    } else {
+      //กำหนดค่า child ตามที่ได้จาก check box
+      this.task.subtasks![index].completed = completed;
+      //กำหนดค่าตัว parent ตามการเปลี่ยนแปลงของ child
+      this.task.completed = this.task.subtasks?.every((t: { completed: any; }) => t.completed) ?? true;
+    }
   }
 }
