@@ -7,3 +7,7 @@
 Run [ng serve] for a dev server.
 
 Run [ng build] to build the project.
+
+## Example Some Material UI Component
+Path> src/app/features/home
+Link> hostname/ Or hostname/home
