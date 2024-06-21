@@ -3,7 +3,6 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
-import {MatSidenavModule} from '@angular/material/sidenav';
 import {
   MatDialog,
 } from '@angular/material/dialog';
@@ -20,8 +19,16 @@ import {MatSliderModule} from '@angular/material/slider';
 @Component({
   selector: 'home-component',
   standalone: true,
-  imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatCardModule,MatSidenavModule,MatDividerModule,
-    MatInputModule,MatSelectModule,MatFormFieldModule,FormsModule,MatDatepickerModule,
+  imports: [MatToolbarModule,
+     MatButtonModule,
+      MatIconModule,
+       MatCardModule,
+       MatDividerModule,
+    MatInputModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatDatepickerModule,
     MatSliderModule
   ],
   templateUrl: './home.component.html',
