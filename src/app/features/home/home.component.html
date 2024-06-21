@@ -237,9 +237,79 @@
             </div>
           </div>
 
-          <div class="w-full bg-[#653148]">5</div>
+          <div #ExampleBasicChoice class="w-full">
+            <h3>Example Basic Radios</h3>
+            <!--สร้าง Radio Group-->
+            <mat-radio-group aria-label="Select an option" color="primary">
+              <!--เพิ่ม Radio choice-->
+              <mat-radio-button value="1">Option 1</mat-radio-button>
+              <mat-radio-button value="2">Option 2</mat-radio-button>
+            </mat-radio-group>
+            <mat-divider></mat-divider>
+            <h3 class="mt-[10px]">Example Change Posittion</h3>
+            <!--สร้าง section-->
+            <section>
+              <span>
+                <!--สร้าง parent checkbox -->
+                <!--กำหนด event indeterminate คือเปลี่ยนสัญลักณ์เมื่อมีการ check บางส่วน-->
+                <!--(change) จัดการ update event-->
+                <mat-checkbox
+                  class="example-margin"
+                  [checked]="task.completed"
+                  [indeterminate]="partiallyComplete()"
+                  (change)="update($event.checked)"
+                >
+                  {{task.name}}
+                </mat-checkbox>
+              </span>
+              <span class="example-list-section">
+                <ul>
+                  <!--สร้าง children checkbox -->
+                  @for (subtask of task.subtasks; track subtask; let i = $index) {
+                    <li class="pl-[20px]">
+                      <!--(change) จัดการ update event-->
+                      <mat-checkbox [checked]="subtask.completed" (change)="update($event.checked, i)">
+                        {{subtask.name}}
+                      </mat-checkbox>
+                    </li>
+                  }
+                </ul>
+              </span>
+            </section>
+          </div>
 
-          <div class="w-full bg-[#653148]">6</div>
+          <div #ExampleSnackbar class="w-full">
+            <h3>Example Snackbar</h3>
+            <!--ปุ่มที่ใช้เรียก snack bar-->
+            <button class="mb-[20px]" mat-stroked-button (click)="openSnackBar()" aria-label="Show an example snack-bar">
+              Snackbar 3 Sec
+            </button>
+            <mat-divider></mat-divider>
+            <h3 class="mt-[10px]">Example Change Posittion</h3>
+            <!--input แนวนอน-->
+            <mat-form-field class="p-0 w-[180px]">
+              <mat-label>Horizontal position</mat-label>
+              <mat-select [(value)]="horizontalPosition">
+                <!--ตัวเลือกแนวนอน-->
+                <mat-option value="start">Start</mat-option>
+                <mat-option value="center">Center</mat-option>
+                <mat-option value="end">End</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <!--input แนวตั้ง-->
+            <mat-form-field class="p-0 w-[180px]">
+              <mat-label>Vertical position</mat-label>
+              <mat-select [(value)]="verticalPosition">
+                <!--ตัวเลือกแนวตั้ง-->
+                <mat-option value="top">Top</mat-option>
+                <mat-option value="bottom">Bottom</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <!--ปุ่มที่ใช้เรียก snack bar-->
+            <button mat-stroked-button (click)="openPositionSnackBar()" aria-label="Show an example snack-bar">
+              Launch Snack Bar
+            </button>
+          </div>
         </div>
       </div>
     </div>
