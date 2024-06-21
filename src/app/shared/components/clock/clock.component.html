@@ -1,16 +1,22 @@
+<!-- position fixed บังคับให้อยู่ในตำแหน่งที่ต้องการบนหน้าจอ -->
 <div class="fixed left-[10px] bottom-[20px] z-20">
+  <!--mat-card คือ Component ใช้สำหรับสร้าง element แบบการ์ด-->
     <mat-card class="overflow-hidden" appearance="outlined">
         <mat-card-header style="padding: 0px;">
             <mat-toolbar color="primary">
               <div class="w-full text-sm sm:text-base md:text-lg flex items-center justify-center">
                 Digital
+                <!-- Icon รูปนาฬิกา-->
                 <mat-icon>access_time</mat-icon>
               </div>
             </mat-toolbar>
           </mat-card-header>
         <mat-card-content style="padding: 0px;">
+            <!--ในขณะที่ Component กำลัง initial ให้แสดง Icon load -->
+            <!--โดยประยุกต์ใช้ mat-icon ของ material ui กับ animate-spin ของ tailwind -->
             <div class="text-center text-xl p-[10px]" #clock>
                 <mat-icon class="animate-spin">
+                  <!-- Icon ลูกศรลวกลม-->
                     autorenew
                 </mat-icon>
             </div>

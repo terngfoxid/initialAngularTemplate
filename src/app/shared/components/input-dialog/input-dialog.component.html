@@ -1,5 +1,6 @@
 <h4 mat-dialog-title>{{data.header}}</h4>
 <mat-dialog-content style="padding-bottom: 0px;">
+  <!--mat-form-field ให้สำหรับ Group Label และ Input ให้เป็น element เดียวกัน-->
   <mat-form-field class="w-full">
     <mat-label>{{data.content}}</mat-label>
     <input matInput [(ngModel)]="newValue" />

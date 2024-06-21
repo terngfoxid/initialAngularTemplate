@@ -1,5 +1,9 @@
+<!-- ButtonShow กำหนดให้ปุ่มแสดง หรือไม่แสดง-->
+<!-- position fixed บังคับให้อยู่ในตำแหน่งที่ต้องการบนหน้าจอ -->
 <div class="fixed right-[5px] bottom-[20px] z-20" *ngIf="ButtonShow">
+  <!--ใช้คำสั่ง mat-fab จะได้ปุ่มลักษณะ วงกลม เรียกใช้ Method scrollToTop()-->
   <button mat-fab (click)="scrollToTop()">
+    <!--mat-icon ระบุชื่อ icon ที่ต้องการใน child element-->
     <mat-icon>vertical_align_top</mat-icon>
   </button>
 </div>
