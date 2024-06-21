@@ -121,20 +121,29 @@
       <!--เรื่องเครื่องมือต่างๆของ Material UI-->
       <div class="w-full min-h-full" #ToolGroup>
         <div class="w-full p-[5px] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[20px] md:gap-[30px]">
+          <!--tool dialog-->
           <div #ExampleDialog class="w-full ">
             <h3>Example Dialog</h3>
+            <!--สร้างปุ่มเพื่อเรียกใช้ Dialog ผ่าน Method openDialog(เวลาในการเปิด,ปิด)-->
             <button mat-raised-button (click)="openDialog('300ms', '300ms')">Yes/No dialog</button>
+            <!--แสดงค่าปัจจุบันของตัวแปร-->
             <p class="mb-[19px]">Current value: {{optionDialog.value}}</p>
             <mat-divider></mat-divider>
             <h3 class="mt-[10px]">Example Dialog with Input</h3>
+            <!--สร้างปุ่มเพื่อเรียกใช้ Dialog ผ่าน Method openInputDialog(เวลาในการเปิด,ปิด)-->
             <button mat-raised-button (click)="openInputDialog('300ms', '300ms')">Input dialog</button>
+            <!--แสดงค่าปัจจุบันของตัวแปร-->
             <p>Current value: {{optionInputDialog.value}}</p>
           </div>
+
+          <!--tool select-->
           <div #ExampleSelect class="w-full">
             <h3>Example Select</h3>
+            <!--mat-form-field ให้สำหรับ Group Label และ Select ให้เป็น element เดียวกัน-->
             <mat-form-field class="p-0 w-[180px]">
               <mat-label>Favorite food</mat-label>
               <mat-select [(ngModel)]="optionSelect.selectedValue" name="food">
+                <!--วนลูปเพื่อสร้าง mat-option-->
                 @for (food of optionSelect.selectItems; track food) {
                 <mat-option [value]="food.id">{{food.name}}</mat-option>
                 }
@@ -142,11 +151,15 @@
             </mat-form-field>
             <mat-divider></mat-divider>
             <h3 class="mt-[10px]">Example Multi Select</h3>
+            <!--mat-form-field ให้สำหรับ Group Label และ Select ให้เป็น element เดียวกัน-->
             <mat-form-field class="p-0 w-[180px]">
               <mat-label>Toppings</mat-label>
               <mat-select [(ngModel)]="optionSelectMulti.selectedValue" multiple name="topping">
+                <!--mat-select-trigger คือ Component Text ที่จะแสดงใน Select-->
                 <mat-select-trigger>
+                  <!--เรียก method getFirst() เพื่อเอาค่า string ของตัวแรก -->
                   {{getFirst(optionSelectMulti)}}
+                  <!--หากมีมากกว่า 1 ตัวจะเติมคำว่า + other หรือ + จำนวน other เข้าไป-->
                   @if ((optionSelectMulti.selectedValue.length) > 1) {
                   <span class="example-additional-selection">
                     (+{{(optionSelectMulti.selectedValue.length || 0) - 1}} {{optionSelectMulti.selectedValue.length ===
@@ -154,21 +167,28 @@
                   </span>
                   }
                 </mat-select-trigger>
+                <!--วนลูปเพื่อสร้าง mat-option-->
                 @for (topping of optionSelectMulti.selectItems; track topping) {
                 <mat-option [value]="topping.id">{{topping.name}}</mat-option>
                 }
               </mat-select>
             </mat-form-field>
+            <!--แสดงค่าปัจจุบันของตัวแปร-->
             <p>Current value: {{optionSelectMulti.selectedValue}}</p>
           </div>
+
+          <!--tool datepicker-->
           <div #ExampleDatepicker class="w-full">
             <h3>Example Datepicker</h3>
+            <!--mat-form-field ให้สำหรับ Group Label ,Input ,Hint ให้เป็น element เดียวกัน-->
             <mat-form-field class="p-0 w-[180px]">
               <mat-label>วันที่</mat-label>
               <input matInput [matDatepicker]="datepicker" name="datepicker" readonly />
+              <!--แสดง text format ของ Datepicker-->
               <mat-hint>วัน/เดือน/ปี พ.ศ.</mat-hint>
               <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
               <mat-datepicker #datepicker>
+                <!--กำหนด Action ของ Datepicker-->
                 <mat-datepicker-actions>
                   <button mat-button matDatepickerCancel>Cancel</button>
                   <button mat-raised-button matDatepickerApply>Apply</button>
@@ -177,15 +197,18 @@
             </mat-form-field>
             <mat-divider></mat-divider>
             <h3 class="mt-[10px]">Example Date Range</h3>
+            <!--mat-form-field ให้สำหรับ Group Label ,Input ,Hint ให้เป็น element เดียวกัน-->
             <mat-form-field class="p-0 w-[180px]">
               <mat-label>วันที่</mat-label>
               <mat-date-range-input [rangePicker]="rangePicker">
                 <input matStartDate placeholder="วันที่เริ่ม" name="startdatepicker" readonly />
                 <input matEndDate placeholder="วันที่สิ้นสุด" name="enddatepicker" readonly />
               </mat-date-range-input>
+              <!--แสดง text format ของ Datepicker-->
               <mat-hint>วัน/เดือน/ปี พ.ศ. ถึง วัน/เดือน/ปี พ.ศ.</mat-hint>
               <mat-datepicker-toggle matIconSuffix [for]="rangePicker"></mat-datepicker-toggle>
               <mat-date-range-picker #rangePicker>
+                <!--กำหนด Action ของ Datepicker-->
                 <mat-date-range-picker-actions>
                   <button mat-button matDateRangePickerCancel>Cancel</button>
                   <button mat-raised-button matDateRangePickerApply>Apply</button>
@@ -193,21 +216,29 @@
               </mat-date-range-picker>
             </mat-form-field>
           </div>
+
+          <!--tool slider-->
           <div #ExampleSlider class="w-full">
             <h3>Example Basic Slider</h3>
+            <!--สร้าง Slider แบบพื้นฐาน ด้วย mat-slider -->
             <mat-slider style="width: 100%;" min="0" max="100">
               <input matSliderThumb>
             </mat-slider>
             <mat-divider></mat-divider>
             <h3 class="mt-[10px]">Example Range slider</h3>
             <div class="w-full mt-[30px]">
+              <!--สร้าง Range Slider ด้วย mat-slider-->
+              <!--โดยมีชุดคำสั่ง discrete [displayWith]="ชื่อ Method ที่คือ value string"-->
+              <!--ใช้แสดง label ที่แสดงค่าขณะกำลังเลื่อน-->
               <mat-slider style="width: 100%;" min="0" max="500" discrete [displayWith]="formatLabel">
                 <input value="250" matSliderStartThumb>
                 <input value="400" matSliderEndThumb>
               </mat-slider>
             </div>
           </div>
+
           <div class="w-full bg-[#653148]">5</div>
+
           <div class="w-full bg-[#653148]">6</div>
         </div>
       </div>

@@ -7,5 +7,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MAT_DATE_LOCALE, provideNativeDateAdapter } from '@angular/material/core';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideClientHydration(), provideAnimationsAsync(), provideNativeDateAdapter(),{provide: MAT_DATE_LOCALE, useValue: 'th-TH'}]
+  providers: [provideRouter(routes), provideClientHydration(), provideAnimationsAsync(),
+     provideNativeDateAdapter(),//Date Adapter
+     {provide: MAT_DATE_LOCALE, useValue: 'th-TH'}//กำหนด Format เป็น วัน/เดือน/ปี พ.ศ. แบบไทย
+    ]
 };

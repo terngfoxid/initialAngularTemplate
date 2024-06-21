@@ -22,14 +22,14 @@ import {MatSliderModule} from '@angular/material/slider';
   imports: [MatToolbarModule,
      MatButtonModule,
       MatIconModule,
-       MatCardModule,
-       MatDividerModule,
+       MatCardModule,//การ์ด
+       MatDividerModule,//เส้นขั้น
     MatInputModule,
     MatSelectModule,
-    MatFormFieldModule,
+    MatFormFieldModule,//ใช้ Group Input กับ อื่นๆ เช่น label hint
     FormsModule,
-    MatDatepickerModule,
-    MatSliderModule
+    MatDatepickerModule,//เลือกวันที่
+    MatSliderModule,//slider
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
@@ -38,6 +38,7 @@ export class HomeComponent {
   readonly dialog = inject(MatDialog);
   readonly value = signal('');
 
+  //structure ตัวแปรที่จะใช้เป็น Input Data ของ Dialog
   optionDialog = {
     header: "Set boolean value", 
     content: "Set boolean value to true or false" , 
@@ -45,16 +46,17 @@ export class HomeComponent {
     reject: "Set to false", 
     value: false
   }
-  
+  //method ที่ใช้แสดง Dialog
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(SimpleDialogComponent, {
-      data: this.optionDialog,
-      width: '500px',
-      enterAnimationDuration,
-      exitAnimationDuration,
+    this.dialog.open(SimpleDialogComponent, { //ใช้ method open เพื่อแสดง Dialog
+      data: this.optionDialog,//กำหนดค่า data
+      width: '500px',//กำหนดความกว้าง
+      enterAnimationDuration,//กำหนดเวลาตอนเปิด
+      exitAnimationDuration,//กำหนดเวลาตอนปิด
     });
   }
 
+  //structure ตัวแปรที่จะใช้เป็น Input Data ของ Dialog
   optionInputDialog = {
     header: "Input Dialog", 
     content: "Input your value" , 
@@ -62,16 +64,17 @@ export class HomeComponent {
     reject: "Cancel", 
     value: ""
   }
-
+  //method ที่ใช้แสดง Dialog
   openInputDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(InputDialogComponent, {
-      data: this.optionInputDialog,
-      width: '500px',
-      enterAnimationDuration,
-      exitAnimationDuration,
+    this.dialog.open(InputDialogComponent, { //ใช้ method open เพื่อแสดง Dialog
+      data: this.optionInputDialog,//กำหนดค่า data
+      width: '500px',//กำหนดความกว้าง
+      enterAnimationDuration,//กำหนดเวลาตอนเปิด
+      exitAnimationDuration,//กำหนดเวลาตอนปิด
     });
   }
 
+  //structure ตัวแปรที่จะใช้กับ Select
   optionSelect ={
     selectedValue:0,
     selectItems:[
@@ -82,6 +85,7 @@ export class HomeComponent {
     ]
   }
 
+  //structure ตัวแปรที่จะใช้กับ Select Multi
   optionSelectMulti ={
     selectedValue:[] as number[],
     selectItems:[
@@ -93,6 +97,7 @@ export class HomeComponent {
     ]
   }
 
+  //Method ที่ใช้ get String ตัวแรกของ Select Multi
   getFirst(option:{
     selectedValue:number[]
     selectItems:{
@@ -106,6 +111,7 @@ export class HomeComponent {
     return findFirst?.name
   }
 
+  //Method ที่ใช้ get String จากค่า value ของ slider
   formatLabel(value: number): string {
     return `${value}`;
   }
