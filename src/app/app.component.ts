@@ -14,10 +14,17 @@ import { BackToTopComponent } from './shared/components/back-to-top/back-to-top.
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,RouterOutlet, MatToolbarModule, MatButtonModule,
-    MatIconModule, MatMenuModule,
-    MatCardModule, MatSidenavModule,
-    ClockComponent,BackToTopComponent],
+  imports: [CommonModule,//Basic tool Angular
+    RouterOutlet, //Router Content
+    MatToolbarModule, //Toolbar
+    MatButtonModule,//Button
+    MatIconModule, //Icon
+    MatMenuModule,//Menu Item
+    MatCardModule, //Card
+    MatSidenavModule,//SideBar
+    ClockComponent,//Overlay Component
+    BackToTopComponent,//Overlay Component
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -1,21 +1,31 @@
+<!--Body ทั้งหน้าครอบด้วย tag main ความสูงขั้นต่ำเท่ากับความสูงของหน้าจอ-->
 <main class="min-h-screen relative">
   <!--NavBar-->
+  <!-- mat-toolbar เป็น Componet ที่ใช้สร้างแถบเครื่องมือ -->
   <mat-toolbar class="fixed top-0 z-10" color="primary">
     <div class="flex gap-[20px] w-full justify-between md:justify-start">
       <div class="flex items-center">
+        <!--Icon Home-->
         <button mat-icon-button>
+          <!-- mat-icon คือ Component สำหรับแสดง Icon ที่ออกแบบโดย Material UI ระบุชื่อ Icon ที่ต้องการใน fontIcon-->
           <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
         </button>
+        <!--Text-->
         <span>My App</span>
       </div>
+      <!--Responsive NavBar menu Desktop จอขนาด MD ขึ้นไปจะแสดง-->
       <div class="hidden md:block">
         <div class="flex items-center h-full">
+          <!--Menu Item-->
+          <!--Mat Menu Component สำหรับสร้าง Menu ซ้อน Menu เรียกผ่านชื่อ Template ใน [matMenuTriggerFor] -->
           <button mat-button [matMenuTriggerFor]="SecondMenu">First Menu</button>
+          <!--ประกาศชื่อ Template = matMenu -->
           <mat-menu #SecondMenu="matMenu">
+            <!--สร้าง Menu ซ้อน Menu เรียกผ่านชื่อ Template ใน [matMenuTriggerFor] -->
             <button mat-menu-item [matMenuTriggerFor]="ThirdMenu1">SecondMenu1</button>
             <button mat-menu-item [matMenuTriggerFor]="ThirdMenu2">SecondMenu2</button>
           </mat-menu>
-
+          <!--ประกาศชื่อ Template = matMenu -->
           <mat-menu #ThirdMenu1="matMenu">
             <button mat-menu-item [matMenuTriggerFor]="ForthMenu1">ThirdMenu1-1</button>
             <button mat-menu-item>ThirdMenu1-2</button>
@@ -23,14 +33,14 @@
             <button mat-menu-item>ThirdMenu1-4</button>
             <button mat-menu-item>ThirdMenu1-5</button>
           </mat-menu>
-
+          <!--ประกาศชื่อ Template = matMenu -->
           <mat-menu #ThirdMenu2="matMenu">
             <button mat-menu-item>ThirdMenu2-1</button>
             <button mat-menu-item>ThirdMenu2-2</button>
             <button mat-menu-item>ThirdMenu2-3</button>
             <button mat-menu-item>ThirdMenu2-4</button>
           </mat-menu>
-
+          <!--ประกาศชื่อ Template = matMenu -->
           <mat-menu #ForthMenu1="matMenu">
             <button mat-menu-item>ForthMenu1-1-1</button>
             <button mat-menu-item>ForthMenu1-1-2</button>
@@ -38,19 +48,26 @@
           </mat-menu>
         </div>
       </div>
+      <!--Responsive NavBar menu Mobile จอขนาดเล็กกว่า MD จะแสดง-->
       <div class="md:hidden">
+        <!--ปุ่มเรียกใช้งาน SideBar -->
         <button mat-icon-button (click)="sideNavbar.toggle()">
+          <!-- mat-icon คือ Component สำหรับแสดง Icon ที่ออกแบบโดย Material UI ระบุชื่อ Icon ที่ต้องการใน Child Element ได้เช่นกัน-->
           <mat-icon>menu</mat-icon>
         </button>
       </div>
     </div>
   </mat-toolbar>
 
+  <!-- ส่วนของ Body ตรงกลาง เว้นระยะจากขอบบนตามความสูง Navbar -->
   <div class="mt-[56px] md:mt-[64px] h-full">
-    <!--SideBar-->
+    <!--กำหนดให้ มีการ Backdrop เมื่อเรียกใช้ SideBar โดยครอบไว้ด้วย mat-drawer-container -->
     <mat-drawer-container class="h-full" [hasBackdrop]="true">
+      <!--กำหนด Content ใน SideBar โดย mat-drawer เปรียบเสมือน Div -->
       <mat-drawer style="position: fixed !important;" class="h-screen" #sideNavbar mode="over">
         <div class="mt-[56px] p-[5px] sm:pt-[10px] md:pt-[15px] bg-[#ffffff]">
+          <!--Mat Menu Component สำหรับสร้าง Menu ซ้อน Menu เรียกผ่านชื่อ Template ใน [matMenuTriggerFor] -->
+          <!--กำหนด Template Menu ที่ต้องการเป็นอันเดียวกันกับ Navbar-->
           <button mat-button [matMenuTriggerFor]="SecondMenu">First Menu</button>
         </div>
       </mat-drawer>
@@ -60,7 +77,9 @@
       </div>
     </mat-drawer-container>
   </div>
+
   <!--Footer-->
+  <!--อยู่ล่างสุดของ Tag Main เสมอ โดยใช้การวางตำแหน่งแบบ relative + absolute -->
   <footer class="absolute bottom-0 w-full z-10">
     <mat-toolbar color="primary">
       <div class="w-full">
@@ -79,5 +98,6 @@
   </footer>
 </main>
 
+<!--Component ที่เป็น Overlay-->
 <clock-component></clock-component>
 <back-to-top-component></back-to-top-component>
