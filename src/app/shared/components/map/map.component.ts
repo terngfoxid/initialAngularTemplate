@@ -50,15 +50,17 @@ export class MapComponent {
 
     //prepare Map
     configMap(Leaflet: any) {
+        //set center
         this.map = Leaflet.map('map', {
             center: [13.736717, 100.523186],
             zoom: 13,
         })
-
+        //load tile texture
         Leaflet.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(this.map);
 
+        //example load custom icon
         const warnIcon = Leaflet.icon({
             iconUrl: 'assets/icons/warning.png',
             iconSize: [30, 30], // size of the icon
@@ -82,6 +84,7 @@ export class MapComponent {
         this.Icon.push(okIcon)
         this.Icon.push(cargoIcon)
 
+        //add event when dbclick map
         this.map.on('dblclick', (e: { latlng: any; }) => {
             var clickLocation = e.latlng;
 
@@ -104,6 +107,7 @@ export class MapComponent {
 
             newMaker.bindPopup(popup).openPopup();
 
+            //add event when dbclick marker
             newMaker.on('dblclick', (e: { latlng: any; }) => {
                 newMaker.remove();
             })
