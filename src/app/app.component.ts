@@ -10,6 +10,7 @@ import { ClockComponent } from './shared/components/clock/clock.component';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { BackToTopComponent } from './shared/components/back-to-top/back-to-top.component';
+import { MapComponent } from './shared/components/map/map.component';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,8 @@ import { BackToTopComponent } from './shared/components/back-to-top/back-to-top.
     MatSidenavModule,//SideBar
     ClockComponent,//Overlay Component
     BackToTopComponent,//Overlay Component
+
+    MapComponent//Call Map Component
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

@@ -74,6 +74,10 @@
       <div class="w-11/12 lg:w-5/6 mx-auto mt-[20px] mb-[84px] min-h-[550px]">
         <!--Page Content-->
         <router-outlet></router-outlet>
+        <!--Call map under router content-->
+        <div class="mt-[20px]">
+          <map-component></map-component>
+        </div>
       </div>
     </mat-drawer-container>
   </div>
@@ -99,5 +103,4 @@
 </main>
 
 <!--Component ที่เป็น Overlay-->
-<clock-component></clock-component>
 <back-to-top-component></back-to-top-component>
